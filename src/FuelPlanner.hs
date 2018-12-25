@@ -106,7 +106,7 @@ data Step = Burn Fuel
       , fuel "LEU-233" 53.3 144 60 (loweff u233 u238)
           [ (4, pu239), (4, pu241), (32, pu242), (24, am243) ] 
       , fuel "HEU-233" 53.3 576 360 (higheff u233 u238)
-          [ (32, np236), (8, np237), (16, pu242), (24, am243) ]
+          [ (32, np236), (8, np237), (16, pu242), (8, am243) ]
       , fuel "LEU-235" 60 120 50 (loweff u235 u238)
           [ (40, u238 ), (8, np237), (8, pu239), (8, pu241) ]
       , fuel "HEU-235" 60 480 300 (higheff u235 u238)
@@ -120,7 +120,7 @@ data Step = Burn Fuel
       , fuel "HEP-239" 76.6 420 240 (higheff pu239 pu242)
           [ (8, am241), (24, am242), (8, cm245), (24, cm246) ]
       , fuel "LEP-241" 76.6 165 70 (loweff pu241 pu242)
-          [ (16, u233), (8, u235), (8, np236), (32, np237)]
+          [ (4, pu242), (4, am242), (8, am243), (48, cm246) ]
       , fuel "HEP-241" 76.6 660 420 (higheff pu241 pu242)
           [ (8, am241), (8, cm245), (24, cm246), (24, cm247)]
       , fuel "LEA-242" 45 192 94 (loweff am242 am243)
@@ -227,7 +227,8 @@ mkprob allsteps inv = let
   mkConstraint f one =
     (map (\step -> cvt (findWithDefault 0 step one)) steps)
     :>=: cvt (negate (findWithDefault 0 f inv))
-  constraints = (M.elems (M.mapWithKey mkConstraint matrix))
+--  constraints = (M.elems (M.mapWithKey mkConstraint matrix))
+  constraints = map (\f -> mkConstraint f (findWithDefault empty f matrix)) fissiles
   matrix' :: Map Step Double
   matrix' = recombine matrix
   prob = (map (\step -> findWithDefault 0.0 step matrix') steps)
