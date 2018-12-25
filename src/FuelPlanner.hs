@@ -138,7 +138,7 @@ data Step = Burn Fuel
       , fuel "LECm-247" 65 138 54 (loweff cm247 cm246)
           [ (20, bk247), (4, bk248), (8, cf251), (32, cf252) ]
       , fuel "HECm-247" 65 552 324 (higheff cm247 cm246)
-          [ (8, bk248), (8, cf249), (8, cf251), (32, cf252) ]
+          [ (8, bk248), (8, cf249), (24, cf251), (24, cf252) ]
       , fuel "LEB-248" 71.7 135 52 (loweff bk248 bk247)
           [ (4, cf249), (4, cf251), (28, cf252), (28, cf252) ]
       , fuel "HEB-248" 71.7 540 312 (higheff bk248 bk247)
