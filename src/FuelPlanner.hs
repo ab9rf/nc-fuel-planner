@@ -119,6 +119,10 @@ data Step = Burn Fuel
           [ (8, pu239), (24, pu242), (4, cm243), (28, cm246) ]
       , fuel "HEP-239" 76.6 420 240 (higheff pu239 pu242)
           [ (8, am241), (24, am242), (8, cm245), (24, cm246) ]
+      , fuel "LEP-241" 76.6 165 70 (loweff pu241 pu242)
+          [ (16, u233), (8, u235), (8, np236), (32, np237)]
+      , fuel "HEP-241" 76.6 660 420 (higheff pu241 pu242)
+          [ (8, am241), (8, cm245), (24, cm246), (24, cm247)]
       , fuel "LEA-242" 45 192 94 (loweff am242 am243)
           [ (8, cm243), (8, cm245), (40, cm246), (8, cm247) ]
       , fuel "HEA-242" 45 768 564 (higheff am242 am243)
