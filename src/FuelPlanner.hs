@@ -109,7 +109,7 @@ data Step = Burn Fuel
           [ (32, np236), (8, np237), (16, pu242), (24, am243) ]
       , fuel "LEU-235" 60 120 50 (loweff u235 u238)
           [ (40, u238 ), (8, np237), (8, pu239), (8, pu241) ]
-      , fuel "HEU-235" 60 480 300 (higheff u238 u238)
+      , fuel "HEU-235" 60 480 300 (higheff u235 u238)
           [ (20, u238), (16, np237), (4, pu239), (24, pu242) ]
       , fuel "LEN-236" 85 90 36 (loweff np236 np237)
           [ (4, np237), (32, pu242), (8, am242), (20, am243) ]
